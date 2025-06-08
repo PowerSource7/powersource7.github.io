@@ -3,85 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PowerSource | Projects</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f2f2f2;
-      color: #333;
-    }
-    header {
-      background: #1e1e2f;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
-    .project {
-      background: white;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .project h2 {
-      margin-top: 0;
-    }
-    .project img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    .project a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #1e1e2f;
-      color: white;
-    }
-    @media screen and (max-width: 600px) {
-      .project {
-        padding: 15px;
-      }
-    }
-  </style>
+  <title>PowerSource</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>PowerSource7</h1>
-    <p>Welcome to my project portfolio</p>
+    <h1>PowerSource</h1>
+    <p>Showcasing My Projects & Ideas</p>
   </header>
 
   <div class="container">
-    <!-- PROJECT TEMPLATE START -->
+    
+    <!-- Project 1 -->
     <div class="project">
-      <h2>Smart Temperature Monitor</h2>
-      <img src="https://via.placeholder.com/800x300" alt="Project image" />
-      <p>This project uses Arduino and DHT11 to monitor room temperature and humidity. The data is sent wirelessly to a display using an RF module.</p>
-      <p><strong>Tools Used:</strong> Arduino, DHT11, RF Module, 16x2 LCD</p>
-      <p><strong>Steps:</strong></p>
-      <ul>
-        <li>Connect the DHT11 sensor to Arduino</li>
-        <li>Transmit data via RF module</li>
-        <li>Receive and display on LCD</li>
-      </ul>
-      <p><a href="https://github.com/PowerSource7/temp-monitor">View Code on GitHub</a></p>
+      <h2>RF Weather Transmitter</h2>
+      <p>This project sends real-time temperature and humidity wirelessly using an RF module and DHT11 sensor. It’s useful for monitoring weather conditions from a distance. The transmitter and receiver use Arduino Uno boards.</p>
+      <p><strong>Code & Repo:</strong> 
+        <a href="https://github.com/YourUsername/YourRFProject" target="_blank">View on GitHub</a>
+      </p>
     </div>
-    <!-- PROJECT TEMPLATE END -->
 
-    <!-- Add more projects below using the same structure -->
+    <!-- Project 2 Placeholder -->
+    <div class="project">
+      <h2>Coming Soon: AI-Based Object Detection Robot</h2>
+      <p>This section will showcase your YOLO object detection robot using Raspberry Pi, TensorFlow, and a camera system.</p>
+      <p><strong>Code & Repo:</strong> 
+        <a href="#">To be added...</a>
+      </p>
+    </div>
+
+    <!-- About Me -->
+    <div class="project">
+      <h2>About Me</h2>
+      <p>Hello! I’m an electronics and computer enthusiast who enjoys building smart systems, automation projects, and AI applications. I created this site to document and share my technical journey.</p>
+      <!-- Uncomment and add when you're ready -->
+      <!-- <p>Resume: <a href="link-to-resume.pdf" target="_blank">Download PDF</a></p> -->
+      <!-- <p>Contact: email@example.com</p> -->
+    </div>
+
   </div>
-
-  <footer>
-    <p>&copy; 2025 PowerSource7. All rights reserved.</p>
-  </footer>
 </body>
 </html>
