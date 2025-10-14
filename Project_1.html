@@ -6,14 +6,29 @@
     <title>Wi-Fi Duck Pro - Wireless Keyboard Injection Device</title>
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <style>
         .warning-banner {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24, #ff4757);
             color: white;
-            padding: 1.5rem;
-            border-radius: 12px;
+            padding: 2rem;
+            border-radius: 15px;
             margin: 2rem 0;
-            border-left: 6px solid #c23616;
+            border: 3px solid #c23616;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .warning-banner::before {
+            content: "⚠️";
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 3rem;
+            opacity: 0.3;
         }
         
         .warning-banner h3 {
@@ -21,6 +36,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 1.5rem;
         }
         
         .component-table {
@@ -28,80 +44,181 @@
             border-collapse: collapse;
             margin: 1.5rem 0;
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         .component-table th {
-            background: #4f46e5;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
             color: white;
-            padding: 1rem;
+            padding: 1.2rem;
             text-align: left;
             font-weight: 600;
+            font-size: 1.1rem;
         }
         
         .component-table td {
-            padding: 1rem;
+            padding: 1.2rem;
             border-bottom: 1px solid #e2e8f0;
+            transition: background 0.3s ease;
+        }
+        
+        .component-table tr:hover td {
+            background: #f8fafc;
         }
         
         .component-table tr:last-child td {
             border-bottom: none;
         }
         
-        .code-block {
+        .code-section {
             background: #1e293b;
+            border-radius: 12px;
+            margin: 2rem 0;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .code-header {
+            background: #0f172a;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .code-header h4 {
+            margin: 0;
             color: #e2e8f0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
+            font-weight: 600;
+        }
+        
+        .code-filename {
+            background: #475569;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
             font-size: 0.9rem;
-            line-height: 1.5;
+            font-family: 'Courier New', monospace;
         }
         
         .architecture-diagram {
             text-align: center;
             background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 2.5rem 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e2e8f0;
         }
         
         .test-result {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.25rem 0.75rem;
+            padding: 0.5rem 1rem;
             background: #10b981;
             color: white;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            font-weight: 500;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.2rem;
         }
         
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
         
         .feature-card {
             background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1.8rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #4f46e5;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         .section-divider {
-            height: 2px;
-            background: linear-gradient(90deg, #4f46e5, #06b6d4);
-            margin: 3rem 0;
+            height: 3px;
+            background: linear-gradient(90deg, #4f46e5, #06b6d4, #10b981);
+            margin: 3.5rem 0;
             border: none;
+            border-radius: 2px;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+            border-left: 5px solid #3b82f6;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+        }
+        
+        .tip-box.warning {
+            background: linear-gradient(135deg, #fef3c7, #fef3c7);
+            border-left: 5px solid #d97706;
+        }
+        
+        .alternative-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .alternative-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .alternative-card:hover {
+            border-color: #4f46e5;
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.1);
+        }
+        
+        .compatibility-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #10b981;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.2rem;
+        }
+        
+        .compatibility-badge.warning {
+            background: #f59e0b;
+        }
+        
+        .compatibility-badge.error {
+            background: #ef4444;
+        }
+        
+        pre {
+            margin: 0;
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
         }
     </style>
 </head>
@@ -126,13 +243,24 @@
             <a href="../index.html" class="back-btn">← Back to Projects</a>
             
             <div class="project-detail-content">
+                <!-- Creative Disclaimer -->
                 <div class="warning-banner">
-                    <h3>⚠️ IMPORTANT DISCLAIMER</h3>
-                    <p><strong>This project is for educational and authorized security testing purposes only.</strong> Unauthorized use of keystroke injection devices may violate laws and regulations. Always ensure you have explicit permission before testing on any system. The developer is not responsible for any misuse of this technology.</p>
+                    <h3>🚨 ETHICAL USAGE DISCLAIMER - READ CAREFULLY! 🚨</h3>
+                    <p><strong>⚠️ WARNING: This device is a double-edged sword! ⚠️</strong></p>
+                    <p>This project demonstrates HID injection capabilities for <strong>EDUCATIONAL PURPOSES ONLY</strong>. Unauthorized use is:</p>
+                    <ul>
+                        <li>🚫 <strong>ILLEGAL</strong> in most jurisdictions</li>
+                        <li>🚫 Considered <strong>CYBERCRIME</strong> when used without permission</li>
+                        <li>🚫 Could result in <strong>SEVERE LEGAL CONSEQUENCES</strong></li>
+                    </ul>
+                    <p><strong>✅ ONLY USE ON SYSTEMS YOU OWN OR HAVE EXPLICIT WRITTEN PERMISSION TO TEST!</strong></p>
+                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 1rem;">
+                        <em>"With great power comes great responsibility" - Use this knowledge ethically!</em>
+                    </p>
                 </div>
 
                 <div class="project-detail-image">
-                    <img src="../images/wifi-duck-pro.jpg" alt="Wi-Fi Duck Pro" onerror="this.src='https://via.placeholder.com/800x400/4f46e5/ffffff?text=Wi-Fi+Duck+Pro'">
+                    <img src="../images/wifi-duck-pro.jpg" alt="Wi-Fi Duck Pro" onerror="this.src='https://via.placeholder.com/800x400/4f46e5/ffffff?text=Wi-Fi+Duck+Pro+Setup'">
                 </div>
                 
                 <h1>Wi-Fi Duck Pro: Wireless Keyboard Injection Device</h1>
@@ -144,6 +272,7 @@
                     <span class="tech-tag">Arduino</span>
                     <span class="tech-tag">WiFi</span>
                     <span class="tech-tag">HID</span>
+                    <span class="tech-tag">Web Interface</span>
                 </div>
 
                 <div class="project-detail-description">
@@ -159,283 +288,1065 @@
                     <h2>Key Features</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <h4>Wireless Control</h4>
-                            <p>Control via web interface from any device with a browser</p>
+                            <h4>🌐 Wireless Web Control</h4>
+                            <p>Control via beautiful web interface from any device with browser. No apps required!</p>
                         </div>
                         <div class="feature-card">
-                            <h4>Ducky Script Compatible</h4>
-                            <p>Supports standard Hak5 Ducky Script syntax</p>
+                            <h4>🦆 Ducky Script Compatible</h4>
+                            <p>Full support for Hak5 Ducky Script syntax with extensions</p>
                         </div>
                         <div class="feature-card">
-                            <h4>Real-time Injection</h4>
-                            <p>Low-latency keystroke injection with instant execution</p>
+                            <h4>⚡ Real-time Injection</h4>
+                            <p>Low-latency keystroke injection with &lt;50ms response time</p>
                         </div>
                         <div class="feature-card">
-                            <h4>Payload Management</h4>
-                            <p>Upload, download, and manage multiple payload scripts</p>
+                            <h4>📁 Payload Management</h4>
+                            <p>Upload, download, and manage multiple payload scripts with file browser</p>
                         </div>
                         <div class="feature-card">
-                            <h4>Cross-Platform</h4>
-                            <p>Works with Windows, Linux, and macOS systems</p>
+                            <h4>💻 Cross-Platform</h4>
+                            <p>Works with Windows, Linux, macOS, and Chrome OS systems</p>
                         </div>
                         <div class="feature-card">
-                            <h4>Web Interface</h4>
-                            <p>Responsive HTML5 interface with syntax highlighting</p>
+                            <h4>🎨 Beautiful Interface</h4>
+                            <p>Responsive HTML5 interface with syntax highlighting and dark mode</p>
                         </div>
                     </div>
                 </div>
 
                 <hr class="section-divider">
 
+                <!-- Complete Source Code Section -->
                 <div class="project-features">
-                    <h2>System Architecture</h2>
+                    <h2>Complete Source Code</h2>
                     
-                    <h3>Hardware Components</h3>
-                    <table class="component-table">
-                        <thead>
-                            <tr>
-                                <th>Component</th>
-                                <th>Specification</th>
-                                <th>Purpose</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Raspberry Pi Pico H</td>
-                                <td>RP2040, 2MB Flash</td>
-                                <td>USB HID Emulation</td>
-                            </tr>
-                            <tr>
-                                <td>ESP8266 NodeMCU</td>
-                                <td>ESP-12E, 4MB Flash</td>
-                                <td>WiFi Access Point & Web Server</td>
-                            </tr>
-                            <tr>
-                                <td>USB Cable</td>
-                                <td>Micro USB</td>
-                                <td>Power & Data Transfer</td>
-                            </tr>
-                            <tr>
-                                <td>Jumper Wires</td>
-                                <td>22 AWG</td>
-                                <td>Inter-board Communication</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h3>System Block Diagram</h3>
-                    <div class="architecture-diagram">
-                        <pre style="text-align: left; background: #f8fafc; padding: 1.5rem; border-radius: 8px;">
-[Web Client] ← WiFi → [ESP8266] ← UART → [Pico H] ← USB → [Target Computer]
-    ↑                    ↑                    ↑              ↑
-  Browser           Web Server          HID Keyboard     Keystroke Injection</pre>
+                    <div class="tip-box">
+                        <h4>📝 Programming Tips:</h4>
+                        <ul>
+                            <li>Use Arduino IDE with Raspberry Pi Pico and ESP8266 board support</li>
+                            <li>Install required libraries: Keyboard, ESP8266WiFi, ESP8266WebServer</li>
+                            <li>Upload ESP8266 code first, then Pico code</li>
+                            <li>Use 115200 baud rate for serial monitoring</li>
+                        </ul>
                     </div>
 
-                    <h3>Communication Protocol</h3>
-                    <ul>
-                        <li><strong>Baud Rate:</strong> 115200 bps</li>
-                        <li><strong>Data Format:</strong> 8N1</li>
-                        <li><strong>Protocol:</strong> ASCII-based command protocol</li>
-                        <li><strong>Command Structure:</strong> COMMAND [PARAMETER]</li>
-                    </ul>
-                </div>
+                    <!-- Raspberry Pi Pico Code -->
+                    <div class="code-section">
+                        <div class="code-header">
+                            <h4>Raspberry Pi Pico H - HID Controller</h4>
+                            <span class="code-filename">wifi_duck_pico.ino</span>
+                        </div>
+                        <pre><code class="language-cpp">#include &lt;Keyboard.h&gt;
 
-                <hr class="section-divider">
+String inputString = "";
+boolean stringComplete = false;
 
-                <div class="project-features">
-                    <h2>Technical Implementation</h2>
-                    
-                    <h3>Raspberry Pi Pico H (HID Client)</h3>
-                    <p><strong>Core Functionality:</strong> USB HID keyboard emulation, UART command processing, Ducky Script execution</p>
-                    
-                    <h4>Command Processing Algorithm</h4>
-                    <div class="code-block">
+void setup() {
+  Serial1.begin(115200); // Communication with ESP8266 (GP0, GP1)
+  Serial.begin(115200);  // Debug serial (optional)
+  Keyboard.begin();
+  delay(1000);
+  Serial.println("Pico WiFi Duck Pro - Ready!");
+}
+
+void loop() {
+  // Read commands from ESP8266
+  while (Serial1.available()) {
+    char inChar = (char)Serial1.read();
+    if (inChar == '\n') {
+      stringComplete = true;
+    } else {
+      inputString += inChar;
+    }
+  }
+
+  // Process complete commands
+  if (stringComplete) {
+    inputString.trim();
+    Serial.print("Executing: ");
+    Serial.println(inputString);
+    processDuckyCommand(inputString);
+    inputString = "";
+    stringComplete = false;
+  }
+}
+
 void processDuckyCommand(String cmd) {
+  // Convert to uppercase for comparison
+  String cmdUpper = cmd;
+  cmdUpper.toUpperCase();
+  
   if (cmd.startsWith("STRING ")) {
-    // Type text
     String text = cmd.substring(7);
     Keyboard.print(text);
   }
-  else if (cmd == "ENTER") {
-    // Press Enter key
+  else if (cmdUpper == "ENTER") {
     Keyboard.write(KEY_RETURN);
   }
-  else if (cmd == "GUI r") {
-    // Windows key + R combination
+  else if (cmdUpper == "TAB") {
+    Keyboard.write(KEY_TAB);
+  }
+  else if (cmdUpper == "SPACE") {
+    Keyboard.write(' ');
+  }
+  else if (cmdUpper == "BACKSPACE") {
+    Keyboard.write(KEY_BACKSPACE);
+  }
+  else if (cmdUpper == "DELETE") {
+    Keyboard.write(KEY_DELETE);
+  }
+  else if (cmdUpper.startsWith("DELAY ")) {
+    int delayTime = cmd.substring(6).toInt();
+    delay(delayTime);
+  }
+  else if (cmdUpper == "ESC" || cmdUpper == "ESCAPE") {
+    Keyboard.write(KEY_ESC);
+  }
+  else if (cmdUpper == "UP" || cmdUpper == "UPARROW") {
+    Keyboard.write(KEY_UP_ARROW);
+  }
+  else if (cmdUpper == "DOWN" || cmdUpper == "DOWNARROW") {
+    Keyboard.write(KEY_DOWN_ARROW);
+  }
+  else if (cmdUpper == "LEFT" || cmdUpper == "LEFTARROW") {
+    Keyboard.write(KEY_LEFT_ARROW);
+  }
+  else if (cmdUpper == "RIGHT" || cmdUpper == "RIGHTARROW") {
+    Keyboard.write(KEY_RIGHT_ARROW);
+  }
+  else if (cmdUpper == "F1") {
+    Keyboard.write(KEY_F1);
+  }
+  else if (cmdUpper == "F2") {
+    Keyboard.write(KEY_F2);
+  }
+  else if (cmdUpper == "F3") {
+    Keyboard.write(KEY_F3);
+  }
+  else if (cmdUpper == "F4") {
+    Keyboard.write(KEY_F4);
+  }
+  else if (cmdUpper == "F5") {
+    Keyboard.write(KEY_F5);
+  }
+  else if (cmdUpper == "F6") {
+    Keyboard.write(KEY_F6);
+  }
+  else if (cmdUpper == "F7") {
+    Keyboard.write(KEY_F7);
+  }
+  else if (cmdUpper == "F8") {
+    Keyboard.write(KEY_F8);
+  }
+  else if (cmdUpper == "F9") {
+    Keyboard.write(KEY_F9);
+  }
+  else if (cmdUpper == "F10") {
+    Keyboard.write(KEY_F10);
+  }
+  else if (cmdUpper == "F11") {
+    Keyboard.write(KEY_F11);
+  }
+  else if (cmdUpper == "F12") {
+    Keyboard.write(KEY_F12);
+  }
+  
+  // === KEY COMBINATIONS ===
+  else if (cmdUpper == "GUI R" || cmdUpper == "WIN R" || cmdUpper == "GUI R") {
     Keyboard.press(KEY_LEFT_GUI);
     Keyboard.press('r');
     delay(100);
     Keyboard.releaseAll();
   }
-  // ... additional command handlers
-}
+  else if (cmdUpper == "CTRL-ALT-T" || cmdUpper == "CTRL ALT T") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press('t');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-SHIFT-ESC" || cmdUpper == "CTRL SHIFT ESC") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.write(KEY_ESC);
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "ALT-TAB" || cmdUpper == "ALT TAB") {
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.write(KEY_TAB);
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "ALT-F4" || cmdUpper == "ALT F4") {
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.write(KEY_F4);
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-C" || cmdUpper == "CTRL C") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('c');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-V" || cmdUpper == "CTRL V") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('v');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-A" || cmdUpper == "CTRL A") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('a');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-S" || cmdUpper == "CTRL S") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('s');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-Z" || cmdUpper == "CTRL Z") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('z');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-X" || cmdUpper == "CTRL X") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('x');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-Y" || cmdUpper == "CTRL Y") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('y');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-F" || cmdUpper == "CTRL F") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('f');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-P" || cmdUpper == "CTRL P") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('p');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-W" || cmdUpper == "CTRL W") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('w');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-N" || cmdUpper == "CTRL N") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('n');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-O" || cmdUpper == "CTRL O") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('o');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-T" || cmdUpper == "CTRL T") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press('t');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "SHIFT-DELETE" || cmdUpper == "SHIFT DELETE") {
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.write(KEY_DELETE);
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-SHIFT-N" || cmdUpper == "CTRL SHIFT N") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press('n');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  else if (cmdUpper == "CTRL-SHIFT-T" || cmdUpper == "CTRL SHIFT T") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_SHIFT);
+    Keyboard.press('t');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  // Single key presses (fallback)
+  else if (cmdUpper == "GUI" || cmdUpper == "WIN") {
+    Keyboard.press(KEY_LEFT_GUI);
+    delay(100);
+    Keyboard.release(KEY_LEFT_GUI);
+  }
+  else if (cmdUpper == "CTRL") {
+    Keyboard.press(KEY_LEFT_CTRL);
+    delay(100);
+    Keyboard.release(KEY_LEFT_CTRL);
+  }
+  else if (cmdUpper == "ALT") {
+    Keyboard.press(KEY_LEFT_ALT);
+    delay(100);
+    Keyboard.release(KEY_LEFT_ALT);
+  }
+  else if (cmdUpper == "SHIFT") {
+    Keyboard.press(KEY_LEFT_SHIFT);
+    delay(100);
+    Keyboard.release(KEY_LEFT_SHIFT);
+  }
+  // If it's not a recognized command, type it as plain text
+  else if (cmd.length() > 0) {
+    Keyboard.print(cmd);
+  }
+}</code></pre>
                     </div>
 
-                    <h3>ESP8266 (Web Server & WiFi AP)</h3>
-                    <p><strong>Network Configuration:</strong></p>
-                    <ul>
-                        <li>SSID: WiFiDuck</li>
-                        <li>Password: badusb123</li>
-                        <li>IP Address: 192.168.4.1</li>
-                        <li>Protocol: HTTP, Port: 80</li>
-                    </ul>
+                    <!-- ESP8266 Code -->
+                    <div class="code-section">
+                        <div class="code-header">
+                            <h4>ESP8266 - Web Server & WiFi</h4>
+                            <span class="code-filename">wifi_duck_esp.ino</span>
+                        </div>
+                        <pre><code class="language-cpp">#include &lt;ESP8266WiFi.h&gt;
+#include &lt;ESP8266WebServer.h&gt;
+
+const char *ssid = "WiFiDuck";
+const char *password = "badusb123";
+
+ESP8266WebServer server(80);
+
+const char* htmlPage = R"rawliteral(
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Wi-Fi Duck Pro&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;style&gt;
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    .header .subtitle {
+      color: #666;
+      font-size: 1.1em;
+    }
+    .section {
+      margin: 25px 0;
+      padding: 20px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    .section h3 {
+      margin-top: 0;
+      color: #333;
+      border-bottom: 2px solid #667eea;
+      padding-bottom: 10px;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 15px;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 14px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      resize: vertical;
+      background: #fff;
+    }
+    textarea:focus {
+      border-color: #667eea;
+      outline: none;
+      box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+    }
+    input[type="text"], input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      margin: 5px 0;
+    }
+    input:focus {
+      border-color: #667eea;
+      outline: none;
+    }
+    button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    button:active {
+      transform: translateY(0);
+    }
+    .quick-btn {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    }
+    .danger-btn {
+      background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    }
+    .warning-btn {
+      background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+      color: #000;
+    }
+    .info-btn {
+      background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%);
+    }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .status {
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      text-align: center;
+      font-weight: bold;
+    }
+    .status.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .status.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    .payload-preset {
+      background: #e9ecef;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+      cursor: pointer;
+      border-left: 4px solid #667eea;
+    }
+    .payload-preset:hover {
+      background: #dee2e6;
+    }
+    .key-combo {
+      display: inline-block;
+      background: #333;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      margin: 2px;
+      font-size: 12px;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="header"&gt;
+      &lt;h1&gt;🦆 Wi-Fi Duck Pro&lt;/h1&gt;
+      &lt;div class="subtitle"&gt;Advanced Keyboard Injection Platform&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Quick Text Input --&gt;
+    &lt;div class="section"&gt;
+      &lt;h3&gt;📝 Quick Text Input&lt;/h3&gt;
+      &lt;input type="text" id="quickText" placeholder="Type any text to inject..."&gt;
+      &lt;div class="btn-group"&gt;
+        &lt;button onclick="sendString()"&gt;Type Text&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="sendCommand('ENTER')"&gt;Add ENTER&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="sendCommand('TAB')"&gt;Add TAB&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Ducky Script Editor --&gt;
+    &lt;div class="section"&gt;
+      &lt;h3&gt;📜 Ducky Script Editor&lt;/h3&gt;
+      &lt;textarea id="duckyScript"&gt;REM === WiFi Duck Pro Sample Payload ===
+REM Open Run Dialog and launch Notepad
+GUI r
+DELAY 500
+STRING notepad
+ENTER
+DELAY 1000
+
+REM Type a message
+STRING [ WiFi Duck Pro Was Here! ]
+ENTER
+STRING Date: 
+DELAY 1000
+F5
+ENTER
+DELAY 500
+STRING -------------------------
+ENTER
+
+REM Demonstrate key combinations
+STRING Press ALT+F4 to close this window
+ENTER
+DELAY 2000
+REM ALT-F4&lt;/textarea&gt;
+      
+      &lt;div class="btn-group"&gt;
+        &lt;button onclick="sendDuckyScript()"&gt;🚀 Execute Script&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="saveScript()"&gt;💾 Save as File&lt;/button&gt;
+        &lt;button class="warning-btn" onclick="clearScript()"&gt;🗑️ Clear&lt;/button&gt;
+      &lt;/div&gt;
+      
+      &lt;div id="scriptStatus" class="status" style="display:none;"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- File Upload --&gt;
+    &lt;div class="section"&gt;
+      &lt;h3&gt;📁 Upload Payload File&lt;/h3&gt;
+      &lt;input type="file" id="fileInput" accept=".txt,.duck,.js"&gt;
+      &lt;div class="btn-group"&gt;
+        &lt;button onclick="uploadFile()"&gt;📤 Upload &amp; Execute&lt;/button&gt;
+        &lt;button class="info-btn" onclick="uploadAndLoad()"&gt;📥 Upload &amp; Load to Editor&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Quick Actions --&gt;
+    &lt;div class="section"&gt;
+      &lt;h3&gt;⚡ Quick Key Combinations&lt;/h3&gt;
+      &lt;div class="btn-group"&gt;
+        &lt;button class="quick-btn" onclick="sendCommand('GUI r')"&gt;&lt;span class="key-combo"&gt;Win+R&lt;/span&gt; Run Dialog&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="sendCommand('CTRL-ALT-T')"&gt;&lt;span class="key-combo"&gt;Ctrl+Alt+T&lt;/span&gt; Terminal&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="sendCommand('CTRL-SHIFT-ESC')"&gt;&lt;span class="key-combo"&gt;Ctrl+Shift+Esc&lt;/span&gt; Task Manager&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="sendCommand('ALT-TAB')"&gt;&lt;span class="key-combo"&gt;Alt+Tab&lt;/span&gt; Switch Apps&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="sendCommand('ALT-F4')"&gt;&lt;span class="key-combo"&gt;Alt+F4&lt;/span&gt; Close Window&lt;/button&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="btn-group"&gt;
+        &lt;button class="info-btn" onclick="sendCommand('CTRL-C')"&gt;&lt;span class="key-combo"&gt;Ctrl+C&lt;/span&gt; Copy&lt;/button&gt;
+        &lt;button class="info-btn" onclick="sendCommand('CTRL-V')"&gt;&lt;span class="key-combo"&gt;Ctrl+V&lt;/span&gt; Paste&lt;/button&gt;
+        &lt;button class="info-btn" onclick="sendCommand('CTRL-A')"&gt;&lt;span class="key-combo"&gt;Ctrl+A&lt;/span&gt; Select All&lt;/button&gt;
+        &lt;button class="info-btn" onclick="sendCommand('CTRL-S')"&gt;&lt;span class="key-combo"&gt;Ctrl+S&lt;/span&gt; Save&lt;/button&gt;
+        &lt;button class="info-btn" onclick="sendCommand('CTRL-Z')"&gt;&lt;span class="key-combo"&gt;Ctrl+Z&lt;/span&gt; Undo&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Pre-made Payloads --&gt;
+    &lt;div class="section"&gt;
+      &lt;h3&gt;🎯 Pre-made Payloads&lt;/h3&gt;
+      &lt;div class="btn-group"&gt;
+        &lt;button class="quick-btn" onclick="loadPayload('notepad')"&gt;📝 Notepad Writer&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="loadPayload('calculator')"&gt;🧮 Calculator&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="loadPayload('browser')"&gt;🌐 Browser Launch&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="loadPayload('cmd')"&gt;💻 Command Prompt&lt;/button&gt;
+        &lt;button class="quick-btn" onclick="loadPayload('fun')"&gt;😄 Fun Message&lt;/button&gt;
+      &lt;/div&gt;
+      
+      &lt;div class="btn-group"&gt;
+        &lt;button class="warning-btn" onclick="loadPayload('systeminfo')"&gt;🖥️ System Info&lt;/button&gt;
+        &lt;button class="warning-btn" onclick="loadPayload('network')"&gt;🌐 Network Info&lt;/button&gt;
+        &lt;button class="danger-btn" onclick="loadPayload('shutdown')"&gt;⏻ Shutdown Prank&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- System Commands --&gt;
+    &lt;div class="section"&gt;
+      &lt;h3&gt;🔧 System Commands&lt;/h3&gt;
+      &lt;div class="btn-group"&gt;
+        &lt;button onclick="sendCommand('STRING ipconfig')"&gt;IP Config&lt;/button&gt;
+        &lt;button onclick="sendCommand('STRING systeminfo')"&gt;System Info&lt;/button&gt;
+        &lt;button onclick="sendCommand('STRING whoami')"&gt;Who Am I&lt;/button&gt;
+        &lt;button onclick="sendCommand('STRING netstat')"&gt;Netstat&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Status Panel --&gt;
+    &lt;div class="section"&gt;
+      &lt;h3&gt;📊 Status&lt;/h3&gt;
+      &lt;div id="statusPanel"&gt;
+        &lt;div class="status"&gt;Ready to inject keystrokes...&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    let isExecuting = false;
+
+    // Helper functions
+    function wait(ms) {
+      return new Promise(resolve =&gt; setTimeout(resolve, ms));
+    }
+
+    function showStatus(message, type = 'success') {
+      const statusEl = document.getElementById('scriptStatus');
+      statusEl.textContent = message;
+      statusEl.className = `status ${type}`;
+      statusEl.style.display = 'block';
+      setTimeout(() =&gt; {
+        statusEl.style.display = 'none';
+      }, 3000);
+    }
+
+    // Command sending
+    async function sendCommand(cmd) {
+      if (isExecuting) return;
+      
+      try {
+        const response = await fetch('/cmd?command=' + encodeURIComponent(cmd));
+        if (response.ok) {
+          showStatus(`Sent: ${cmd}`, 'success');
+        } else {
+          throw new Error('Network error');
+        }
+      } catch (error) {
+        showStatus(`Failed to send: ${cmd}`, 'error');
+        console.error('Send failed:', error);
+      }
+    }
+
+    async function sendString() {
+      const text = document.getElementById('quickText').value.trim();
+      if (text) {
+        await sendCommand('STRING ' + text);
+        document.getElementById('quickText').value = '';
+      }
+    }
+
+    async function sendDuckyScript() {
+      if (isExecuting) {
+        showStatus('Already executing a script!', 'error');
+        return;
+      }
+
+      isExecuting = true;
+      const script = document.getElementById('duckyScript').value;
+      const lines = script.split('\n')
+        .map(line =&gt; line.trim())
+        .filter(line =&gt; line.length &gt; 0 &amp;&amp; !line.startsWith('REM'));
+      
+      showStatus(`Executing ${lines.length} commands...`, 'success');
+
+      for (let i = 0; i &lt; lines.length; i++) {
+        const line = lines[i];
+        
+        // Skip comments and empty lines
+        if (line.startsWith('REM') || line === '') continue;
+        
+        await sendCommand(line);
+        await wait(80); // Small delay between commands
+        
+        // Handle DELAY commands
+        if (line.toUpperCase().startsWith('DELAY ')) {
+          const delayTime = parseInt(line.split(' ')[1]) || 0;
+          if (delayTime &gt; 0) {
+            showStatus(`Delaying for ${delayTime}ms...`, 'success');
+            await wait(delayTime);
+          }
+        }
+        
+        // Update progress
+        const progress = Math.round((i + 1) / lines.length * 100);
+        showStatus(`Progress: ${progress}% (${i + 1}/${lines.length})`, 'success');
+      }
+      
+      showStatus('Script execution completed!', 'success');
+      isExecuting = false;
+    }
+
+    // File handling
+    function uploadFile() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+      if (!file) {
+        showStatus('Please select a file first!', 'error');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('duckyScript').value = e.target.result;
+        sendDuckyScript();
+      };
+      reader.readAsText(file);
+    }
+
+    function uploadAndLoad() {
+      const fileInput = document.getElementById('fileInput');
+      const file = fileInput.files[0];
+      if (!file) {
+        showStatus('Please select a file first!', 'error');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('duckyScript').value = e.target.result;
+        showStatus('File loaded to editor!', 'success');
+      };
+      reader.readAsText(file);
+    }
+
+    function saveScript() {
+      const script = document.getElementById('duckyScript').value;
+      const blob = new Blob([script], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'wifi_duck_payload_' + new Date().toISOString().split('T')[0] + '.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showStatus('Script saved as file!', 'success');
+    }
+
+    function clearScript() {
+      if (confirm('Are you sure you want to clear the script editor?')) {
+        document.getElementById('duckyScript').value = '';
+        showStatus('Editor cleared!', 'success');
+      }
+    }
+
+    // Payload templates
+    function loadPayload(type) {
+      let payload = '';
+      
+      switch(type) {
+        case 'notepad':
+          payload = `REM === Notepad Writer ===
+GUI r
+DELAY 500
+STRING notepad
+ENTER
+DELAY 1000
+STRING ╔══════════════════════════════╗
+ENTER
+STRING ║     WiFi Duck Pro Active    ║
+ENTER  
+STRING ║  Keyboard Injection Test    ║
+ENTER
+STRING ║   ${new Date().toLocaleString()}   ║
+ENTER
+STRING ╚══════════════════════════════╝
+ENTER
+DELAY 2000
+REM ALT-F4`;
+          break;
+          
+        case 'calculator':
+          payload = `REM === Calculator ===
+GUI r
+DELAY 500
+STRING calc
+ENTER
+DELAY 1000
+STRING 123
+ADD
+STRING 456
+EQUALS`;
+          break;
+          
+        case 'browser':
+          payload = `REM === Browser Launch ===
+GUI r
+DELAY 500
+STRING chrome
+ENTER
+DELAY 3000
+STRING https://www.google.com
+ENTER
+DELAY 2000
+STRING WiFi Duck Test Successful
+ENTER`;
+          break;
+          
+        case 'cmd':
+          payload = `REM === Command Prompt ===
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 1000
+STRING echo WiFi Duck Pro - Keyboard Injection
+ENTER
+DELAY 1000
+STRING whoami
+ENTER
+DELAY 2000
+STRING exit
+ENTER`;
+          break;
+          
+        case 'fun':
+          payload = `REM === Fun Message ===
+GUI r
+DELAY 500
+STRING notepad
+ENTER
+DELAY 1000
+STRING Hello! 👋
+ENTER
+STRING 
+ENTER
+STRING Your friendly neighborhood
+ENTER
+STRING WiFi Duck was here! 🦆
+ENTER
+STRING 
+ENTER
+STRING Have a great day! 😊
+ENTER
+DELAY 3000
+ALT-F4`;
+          break;
+          
+        case 'systeminfo':
+          payload = `REM === System Information ===
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 1000
+STRING systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Boot Time"
+ENTER
+DELAY 3000
+STRING exit
+ENTER`;
+          break;
+          
+        case 'network':
+          payload = `REM === Network Information ===
+GUI r
+DELAY 500
+STRING cmd
+ENTER
+DELAY 1000
+STRING ipconfig | findstr IPv4
+ENTER
+DELAY 2000
+STRING exit
+ENTER`;
+          break;
+          
+        case 'shutdown':
+          payload = `REM === Shutdown Prank ===
+REM This will schedule shutdown in 60 seconds
+GUI r
+DELAY 500
+STRING shutdown -s -t 60 -c "WiFi Duck was here! Computer will shutdown in 60 seconds. Press OK to cancel."
+ENTER
+DELAY 5000
+REM Cancel shutdown
+STRING shutdown -a
+ENTER`;
+          break;
+      }
+      
+      document.getElementById('duckyScript').value = payload;
+      showStatus(`Loaded ${type} payload!`, 'success');
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Ctrl+Enter to execute script
+      if (e.ctrlKey &amp;&amp; e.key === 'Enter') {
+        e.preventDefault();
+        sendDuckyScript();
+      }
+      // Ctrl+S to save
+      if (e.ctrlKey &amp;&amp; e.key === 's') {
+        e.preventDefault();
+        saveScript();
+      }
+    });
+
+    // Initialize
+    showStatus('WiFi Duck Pro Ready! Connect to target and start injecting.', 'success');
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+)rawliteral";
+
+void handleRoot() {
+  server.send(200, "text/html", htmlPage);
+}
+
+void handleCommand() {
+  if (server.hasArg("command")) {
+    String command = server.arg("command");
+    Serial.println(command); // Send to Pico via Serial
+    server.send(200, "text/plain", "OK: " + command);
+  }
+}
+
+void handleNotFound() {
+  server.send(404, "text/plain", "404: Not found");
+}
+
+void setup() {
+  Serial.begin(115200); // Serial communication with Pico
+  
+  // Start Access Point
+  WiFi.softAP(ssid, password);
+  
+  // Print IP address
+  IPAddress myIP = WiFi.softAPIP();
+  Serial.print("AP IP address: ");
+  Serial.println(myIP);
+  Serial.println("WiFi Duck Pro Started!");
+  Serial.println("Connect to WiFi: " + String(ssid));
+  Serial.println("Password: " + String(password));
+  Serial.println("Then visit: http://" + myIP.toString());
+  
+  // Setup server routes
+  server.on("/", handleRoot);
+  server.on("/cmd", handleCommand);
+  server.onNotFound(handleNotFound);
+  
+  // Start server
+  server.begin();
+  Serial.println("HTTP server started");
+}
+
+void loop() {
+  server.handleClient();
+}</code></pre>
+                    </div>
                 </div>
 
                 <hr class="section-divider">
 
+                <!-- Alternative Controllers Section -->
                 <div class="project-features">
-                    <h2>Ducky Script Implementation</h2>
+                    <h2>🔄 Alternative Controllers & Compatibility</h2>
                     
-                    <h3>Supported Commands</h3>
-                    <table class="component-table">
-                        <thead>
-                            <tr>
-                                <th>Command Syntax</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>STRING text</td>
-                                <td>Types specified text</td>
-                            </tr>
-                            <tr>
-                                <td>DELAY ms</td>
-                                <td>Waits specified milliseconds</td>
-                            </tr>
-                            <tr>
-                                <td>GUI key</td>
-                                <td>Windows/Super key combinations</td>
-                            </tr>
-                            <tr>
-                                <td>CTRL-key</td>
-                                <td>Control key combinations</td>
-                            </tr>
-                            <tr>
-                                <td>ALT-key</td>
-                                <td>Alt key combinations</td>
-                            </tr>
-                            <tr>
-                                <td>ENTER</td>
-                                <td>Presses Enter key</td>
-                            </tr>
-                            <tr>
-                                <td>REM comment</td>
-                                <td>Comment (ignored during execution)</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="tip-box warning">
+                        <h4>⚠️ IMPORTANT UPLOADING TIP:</h4>
+                        <p><strong>DISCONNECT THE CIRCUIT BEFORE UPLOADING CODE!</strong> The Pico and ESP8266 should not be connected to each other via serial pins (GP0-GP1 to RX-TX) while uploading code. The serial communication can interfere with the programming process and cause upload failures.</p>
+                    </div>
+
+                    <h3>Alternative HID Controllers (Instead of Raspberry Pi Pico H)</h3>
+                    <div class="alternative-grid">
+                        <div class="alternative-card">
+                            <h4>Arduino Pro Micro</h4>
+                            <p><strong>Advantages:</strong> Native USB HID support, cheaper, widely available</p>
+                            <p><strong>Code Changes:</strong> Use Arduino Keyboard library directly</p>
+                            <span class="compatibility-badge">Excellent</span>
+                        </div>
+                        
+                        <div class="alternative-card">
+                            <h4>Raspberry Pi Pico W</h4>
+                            <p><strong>Advantages:</strong> Built-in WiFi, single-board solution</p>
+                            <p><strong>Code Changes:</strong> Combine both functionalities in one board</p>
+                            <span class="compatibility-badge">Good</span>
+                        </div>
+                        
+                        <div class="alternative-card">
+                            <h4>Teensy 2.0/3.0/4.0</h4>
+                            <p><strong>Advantages:</strong> Powerful HID capabilities, fast processing</p>
+                            <p><strong>Code Changes:</strong> Use Teensyduino Keyboard library</p>
+                            <span class="compatibility-badge">Excellent</span>
+                        </div>
+                        
+                        <div class="alternative-card">
+                            <h4>ESP32-S2/S3</h4>
+                            <p><strong>Advantages:</strong> Native USB, WiFi, Bluetooth, all-in-one</p>
+                            <p><strong>Code Changes:</strong> Use ESP32 USB HID libraries</p>
+                            <span class="compatibility-badge">Good</span>
+                        </div>
+                    </div>
+
+                    <h3>Alternative WiFi Controllers (Instead of ESP8266)</h3>
+                    <div class="alternative-grid">
+                        <div class="alternative-card">
+                            <h4>ESP32</h4>
+                            <p><strong>Advantages:</strong> More memory, Bluetooth, faster WiFi</p>
+                            <p><strong>Code Changes:</strong> Minimal - use ESP32 WebServer library</p>
+                            <span class="compatibility-badge">Excellent</span>
+                        </div>
+                        
+                        <div class="alternative-card">
+                            <h4>Raspberry Pi Zero W</h4>
+                            <p><strong>Advantages:</strong> Full Linux, more powerful web server</p>
+                            <p><strong>Code Changes:</strong> Complete rewrite using Python/Node.js</p>
+                            <span class="compatibility-badge warning">Major Changes</span>
+                        </div>
+                    </div>
                 </div>
 
                 <hr class="section-divider">
 
+                <!-- Upload Instructions -->
                 <div class="project-features">
-                    <h2>Hardware Configuration</h2>
+                    <h2>📤 Upload Instructions & Tips</h2>
                     
-                    <h3>Pin Connections</h3>
-                    <table class="component-table">
-                        <thead>
-                            <tr>
-                                <th>Raspberry Pi Pico H</th>
-                                <th>ESP8266</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>GP0 (TX)</td>
-                                <td>RX</td>
-                                <td>Serial transmit</td>
-                            </tr>
-                            <tr>
-                                <td>GP1 (RX)</td>
-                                <td>TX</td>
-                                <td>Serial receive</td>
-                            </tr>
-                            <tr>
-                                <td>GND</td>
-                                <td>GND</td>
-                                <td>Common ground</td>
-                            </tr>
-                            <tr>
-                                <td>VBUS</td>
-                                <td>3.3V</td>
-                                <td>Power supply</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <h3>Step-by-Step Upload Process</h3>
+                    <ol>
+                        <li><strong>Prepare Arduino IDE:</strong> Install board support for Raspberry Pi Pico and ESP8266</li>
+                        <li><strong>Upload ESP8266 First:</strong> Disconnect from Pico, upload WiFi code</li>
+                        <li><strong>Upload Pico Second:</strong> Disconnect from ESP8266, upload HID code</li>
+                        <li><strong>Connect Circuit:</strong> Only connect GPIO pins AFTER both are programmed</li>
+                        <li><strong>Test:</strong> Plug into computer, connect to "WiFiDuck" network, visit web interface</li>
+                    </ol>
+
+                    <div class="tip-box">
+                        <h4>🔧 Troubleshooting Tips:</h4>
+                        <ul>
+                            <li><strong>Upload Failing?</strong> Ensure boards are not connected to each other during programming</li>
+                            <li><strong>Web Interface Not Loading?</strong> Check ESP8266 power and WiFi connection</li>
+                            <li><strong>Keystrokes Not Working?</strong> Verify Pico is recognized as keyboard in Device Manager</li>
+                            <li><strong>Serial Communication Issues?</strong> Check baud rate (115200) and GPIO connections</li>
+                        </ul>
+                    </div>
+
+                    <div class="tip-box warning">
+                        <h4>🚨 SAFETY REMINDER:</h4>
+                        <p><strong>ALWAYS TEST ON YOUR OWN SYSTEMS FIRST!</strong> Never plug into unknown computers. This device will be detected as a keyboard and can execute commands immediately upon connection.</p>
+                    </div>
                 </div>
 
                 <hr class="section-divider">
 
-                <div class="project-features">
-                    <h2>Testing & Validation</h2>
-                    
-                    <h3>Functional Testing Results</h3>
-                    <ul>
-                        <li><span class="test-result">✅</span> Basic text input</li>
-                        <li><span class="test-result">✅</span> Special character input</li>
-                        <li><span class="test-result">✅</span> Key combinations</li>
-                        <li><span class="test-result">✅</span> Modifier keys (Ctrl, Alt, Shift, GUI)</li>
-                        <li><span class="test-result">✅</span> Function keys (F1-F12)</li>
-                        <li><span class="test-result">✅</span> Arrow key navigation</li>
-                    </ul>
-
-                    <h3>Performance Metrics</h3>
-                    <ul>
-                        <li><strong>Command Latency:</strong> &lt; 50ms</li>
-                        <li><strong>Web Interface Load Time:</strong> &lt; 2 seconds</li>
-                        <li><strong>Serial Communication:</strong> 115200 bps stable</li>
-                        <li><strong>Concurrent Connections:</strong> 5+ devices</li>
-                    </ul>
-                </div>
-
-                <hr class="section-divider">
-
-                <div class="project-features">
-                    <h2>Security Considerations</h2>
-                    
-                    <h3>Ethical Usage Guidelines</h3>
-                    <ul>
-                        <li><strong>Intended Purpose:</strong> Security testing, education, automation</li>
-                        <li><strong>Authorization Required:</strong> Only use on owned systems</li>
-                        <li><strong>Legal Compliance:</strong> Follow local cybersecurity laws</li>
-                        <li><strong>Educational Value:</strong> Understanding HID injection vectors</li>
-                    </ul>
-
-                    <h3>Security Features</h3>
-                    <ul>
-                        <li>Password-protected WiFi access</li>
-                        <li>Local network operation only</li>
-                        <li>Input sanitization and validation</li>
-                        <li>Temporary operation (no persistence)</li>
-                    </ul>
-                </div>
-
-                <hr class="section-divider">
-
-                <div class="project-features">
-                    <h2>Applications & Use Cases</h2>
-                    
-                    <h3>Security Testing</h3>
-                    <ul>
-                        <li>Penetration testing exercises</li>
-                        <li>Social engineering demonstrations</li>
-                        <li>Physical security assessments</li>
-                        <li>Red team operations</li>
-                    </ul>
-
-                    <h3>Automation & Productivity</h3>
-                    <ul>
-                        <li>Automated system configuration</li>
-                        <li>Batch script execution</li>
-                        <li>Repetitive task automation</li>
-                        <li>Demo and presentation scripting</li>
-                    </ul>
-                </div>
-
-                <hr class="section-divider">
-
+                <!-- Final Project Information -->
                 <div class="project-features">
                     <h2>Project Information</h2>
                     
@@ -446,6 +1357,7 @@ void processDuckyCommand(String cmd) {
                                 <th>Component</th>
                                 <th>Quantity</th>
                                 <th>Cost (Approx.)</th>
+                                <th>Purpose</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -453,39 +1365,47 @@ void processDuckyCommand(String cmd) {
                                 <td>Raspberry Pi Pico H</td>
                                 <td>1</td>
                                 <td>$6</td>
+                                <td>USB HID Emulation</td>
                             </tr>
                             <tr>
                                 <td>ESP8266 NodeMCU</td>
                                 <td>1</td>
                                 <td>$4</td>
+                                <td>WiFi Access Point & Web Server</td>
                             </tr>
                             <tr>
                                 <td>Jumper Wires</td>
                                 <td>4</td>
                                 <td>$1</td>
+                                <td>Inter-board Communication</td>
                             </tr>
                             <tr>
                                 <td>USB Cable</td>
                                 <td>1</td>
                                 <td>$2</td>
+                                <td>Power & Data Transfer</td>
                             </tr>
                             <tr>
                                 <td><strong>Total</strong></td>
                                 <td></td>
                                 <td><strong>$13</strong></td>
+                                <td></td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <div class="project-meta" style="margin-top: 2rem;">
+                    <div class="project-meta" style="margin-top: 2rem; text-align: center; padding: 2rem; background: #f8fafc; border-radius: 12px;">
                         <p><strong>Project Developed By:</strong> Pranav Hastak</p>
                         <p><strong>Date:</strong> October 2024</p>
                         <p><strong>Version:</strong> 1.0</p>
+                        <p><strong>Ethical Usage:</strong> Educational & Authorized Testing Only</p>
                     </div>
                 </div>
 
                 <div style="text-align: center; margin-top: 3rem;">
-                    <a href="https://github.com/powersource7/wifi-duck-pro" class="read-more-btn" target="_blank">View on GitHub</a>
+                    <a href="https://github.com/powersource7/wifi-duck-pro" class="read-more-btn" target="_blank" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                        📁 View Complete Project on GitHub
+                    </a>
                 </div>
             </div>
         </div>
@@ -493,7 +1413,7 @@ void processDuckyCommand(String cmd) {
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+            <p>&copy; 2024 My Portfolio. All rights reserved. | Ethical Hacking & Education</p>
         </div>
     </footer>
 
