@@ -3,9 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Management App - Project Details</title>
+    <title>Wi-Fi Duck Pro - Wireless Keyboard Injection Device</title>
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .warning-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 6px solid #c23616;
+        }
+        
+        .warning-banner h3 {
+            margin: 0 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .component-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .component-table th {
+            background: #4f46e5;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .component-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .component-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .architecture-diagram {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .test-result {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            background: #10b981;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, #4f46e5, #06b6d4);
+            margin: 3rem 0;
+            border: none;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -24,43 +122,372 @@
     </header>
 
     <main class="project-detail">
-        <a href="../index.html" class="back-btn">← Back to Projects</a>
-        
-        <div class="project-detail-content">
-            <div class="project-detail-image">
-                <img src="../images/project2.jpg" alt="Task Management App" onerror="this.src='https://via.placeholder.com/800x400/06b6d4/ffffff?text=Task+Management+App'">
-            </div>
+        <div class="container">
+            <a href="../index.html" class="back-btn">← Back to Projects</a>
             
-            <h1>Task Management App</h1>
-            
-            <div class="project-meta">
-                <span class="tech-tag">Vue.js</span>
-                <span class="tech-tag">Firebase</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">JavaScript</span>
-            </div>
+            <div class="project-detail-content">
+                <div class="warning-banner">
+                    <h3>⚠️ IMPORTANT DISCLAIMER</h3>
+                    <p><strong>This project is for educational and authorized security testing purposes only.</strong> Unauthorized use of keystroke injection devices may violate laws and regulations. Always ensure you have explicit permission before testing on any system. The developer is not responsible for any misuse of this technology.</p>
+                </div>
 
-            <div class="project-detail-description">
-                <p>A collaborative task management application designed to boost productivity and team coordination. Features real-time updates and intuitive drag-and-drop functionality.</p>
+                <div class="project-detail-image">
+                    <img src="../images/wifi-duck-pro.jpg" alt="Wi-Fi Duck Pro" onerror="this.src='https://via.placeholder.com/800x400/4f46e5/ffffff?text=Wi-Fi+Duck+Pro'">
+                </div>
                 
-                <p>The application supports multiple workspaces, team collaboration, file attachments, and deadline tracking with smart notifications.</p>
-            </div>
+                <h1>Wi-Fi Duck Pro: Wireless Keyboard Injection Device</h1>
+                
+                <div class="project-meta">
+                    <span class="tech-tag">Raspberry Pi Pico H</span>
+                    <span class="tech-tag">ESP8266</span>
+                    <span class="tech-tag">C++</span>
+                    <span class="tech-tag">Arduino</span>
+                    <span class="tech-tag">WiFi</span>
+                    <span class="tech-tag">HID</span>
+                </div>
 
-            <div class="project-features">
-                <h3>Key Features</h3>
-                <ul>
-                    <li>Real-time task updates and synchronization</li>
-                    <li>Drag-and-drop task organization</li>
-                    <li>Team collaboration and assignment</li>
-                    <li>File attachments and comments</li>
-                    <li>Deadline tracking and reminders</li>
-                    <li>Multiple workspace support</li>
-                    <li>Progress tracking and analytics</li>
-                    <li>Mobile-responsive design</li>
-                </ul>
-            </div>
+                <div class="project-detail-description">
+                    <h2>Executive Summary</h2>
+                    <p>The Wi-Fi Duck Pro is an advanced wireless keystroke injection device built using a Raspberry Pi Pico H and ESP8266 microcontroller. This device emulates a USB keyboard while being controlled wirelessly through a web interface, enabling remote execution of pre-programmed keyboard sequences and payloads.</p>
+                    
+                    <p>The project demonstrates the practical implementation of Human Interface Device (HID) emulation, wireless communication, and web server technologies for ethical security testing and automation purposes.</p>
+                </div>
 
-            <a href="https://github.com/powersource7/task-management-app" class="read-more-btn" target="_blank">View on GitHub</a>
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Key Features</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4>Wireless Control</h4>
+                            <p>Control via web interface from any device with a browser</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Ducky Script Compatible</h4>
+                            <p>Supports standard Hak5 Ducky Script syntax</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Real-time Injection</h4>
+                            <p>Low-latency keystroke injection with instant execution</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Payload Management</h4>
+                            <p>Upload, download, and manage multiple payload scripts</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Cross-Platform</h4>
+                            <p>Works with Windows, Linux, and macOS systems</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Web Interface</h4>
+                            <p>Responsive HTML5 interface with syntax highlighting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>System Architecture</h2>
+                    
+                    <h3>Hardware Components</h3>
+                    <table class="component-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Specification</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Raspberry Pi Pico H</td>
+                                <td>RP2040, 2MB Flash</td>
+                                <td>USB HID Emulation</td>
+                            </tr>
+                            <tr>
+                                <td>ESP8266 NodeMCU</td>
+                                <td>ESP-12E, 4MB Flash</td>
+                                <td>WiFi Access Point & Web Server</td>
+                            </tr>
+                            <tr>
+                                <td>USB Cable</td>
+                                <td>Micro USB</td>
+                                <td>Power & Data Transfer</td>
+                            </tr>
+                            <tr>
+                                <td>Jumper Wires</td>
+                                <td>22 AWG</td>
+                                <td>Inter-board Communication</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>System Block Diagram</h3>
+                    <div class="architecture-diagram">
+                        <pre style="text-align: left; background: #f8fafc; padding: 1.5rem; border-radius: 8px;">
+[Web Client] ← WiFi → [ESP8266] ← UART → [Pico H] ← USB → [Target Computer]
+    ↑                    ↑                    ↑              ↑
+  Browser           Web Server          HID Keyboard     Keystroke Injection</pre>
+                    </div>
+
+                    <h3>Communication Protocol</h3>
+                    <ul>
+                        <li><strong>Baud Rate:</strong> 115200 bps</li>
+                        <li><strong>Data Format:</strong> 8N1</li>
+                        <li><strong>Protocol:</strong> ASCII-based command protocol</li>
+                        <li><strong>Command Structure:</strong> COMMAND [PARAMETER]</li>
+                    </ul>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Technical Implementation</h2>
+                    
+                    <h3>Raspberry Pi Pico H (HID Client)</h3>
+                    <p><strong>Core Functionality:</strong> USB HID keyboard emulation, UART command processing, Ducky Script execution</p>
+                    
+                    <h4>Command Processing Algorithm</h4>
+                    <div class="code-block">
+void processDuckyCommand(String cmd) {
+  if (cmd.startsWith("STRING ")) {
+    // Type text
+    String text = cmd.substring(7);
+    Keyboard.print(text);
+  }
+  else if (cmd == "ENTER") {
+    // Press Enter key
+    Keyboard.write(KEY_RETURN);
+  }
+  else if (cmd == "GUI r") {
+    // Windows key + R combination
+    Keyboard.press(KEY_LEFT_GUI);
+    Keyboard.press('r');
+    delay(100);
+    Keyboard.releaseAll();
+  }
+  // ... additional command handlers
+}
+                    </div>
+
+                    <h3>ESP8266 (Web Server & WiFi AP)</h3>
+                    <p><strong>Network Configuration:</strong></p>
+                    <ul>
+                        <li>SSID: WiFiDuck</li>
+                        <li>Password: badusb123</li>
+                        <li>IP Address: 192.168.4.1</li>
+                        <li>Protocol: HTTP, Port: 80</li>
+                    </ul>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Ducky Script Implementation</h2>
+                    
+                    <h3>Supported Commands</h3>
+                    <table class="component-table">
+                        <thead>
+                            <tr>
+                                <th>Command Syntax</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>STRING text</td>
+                                <td>Types specified text</td>
+                            </tr>
+                            <tr>
+                                <td>DELAY ms</td>
+                                <td>Waits specified milliseconds</td>
+                            </tr>
+                            <tr>
+                                <td>GUI key</td>
+                                <td>Windows/Super key combinations</td>
+                            </tr>
+                            <tr>
+                                <td>CTRL-key</td>
+                                <td>Control key combinations</td>
+                            </tr>
+                            <tr>
+                                <td>ALT-key</td>
+                                <td>Alt key combinations</td>
+                            </tr>
+                            <tr>
+                                <td>ENTER</td>
+                                <td>Presses Enter key</td>
+                            </tr>
+                            <tr>
+                                <td>REM comment</td>
+                                <td>Comment (ignored during execution)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Hardware Configuration</h2>
+                    
+                    <h3>Pin Connections</h3>
+                    <table class="component-table">
+                        <thead>
+                            <tr>
+                                <th>Raspberry Pi Pico H</th>
+                                <th>ESP8266</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GP0 (TX)</td>
+                                <td>RX</td>
+                                <td>Serial transmit</td>
+                            </tr>
+                            <tr>
+                                <td>GP1 (RX)</td>
+                                <td>TX</td>
+                                <td>Serial receive</td>
+                            </tr>
+                            <tr>
+                                <td>GND</td>
+                                <td>GND</td>
+                                <td>Common ground</td>
+                            </tr>
+                            <tr>
+                                <td>VBUS</td>
+                                <td>3.3V</td>
+                                <td>Power supply</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Testing & Validation</h2>
+                    
+                    <h3>Functional Testing Results</h3>
+                    <ul>
+                        <li><span class="test-result">✅</span> Basic text input</li>
+                        <li><span class="test-result">✅</span> Special character input</li>
+                        <li><span class="test-result">✅</span> Key combinations</li>
+                        <li><span class="test-result">✅</span> Modifier keys (Ctrl, Alt, Shift, GUI)</li>
+                        <li><span class="test-result">✅</span> Function keys (F1-F12)</li>
+                        <li><span class="test-result">✅</span> Arrow key navigation</li>
+                    </ul>
+
+                    <h3>Performance Metrics</h3>
+                    <ul>
+                        <li><strong>Command Latency:</strong> &lt; 50ms</li>
+                        <li><strong>Web Interface Load Time:</strong> &lt; 2 seconds</li>
+                        <li><strong>Serial Communication:</strong> 115200 bps stable</li>
+                        <li><strong>Concurrent Connections:</strong> 5+ devices</li>
+                    </ul>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Security Considerations</h2>
+                    
+                    <h3>Ethical Usage Guidelines</h3>
+                    <ul>
+                        <li><strong>Intended Purpose:</strong> Security testing, education, automation</li>
+                        <li><strong>Authorization Required:</strong> Only use on owned systems</li>
+                        <li><strong>Legal Compliance:</strong> Follow local cybersecurity laws</li>
+                        <li><strong>Educational Value:</strong> Understanding HID injection vectors</li>
+                    </ul>
+
+                    <h3>Security Features</h3>
+                    <ul>
+                        <li>Password-protected WiFi access</li>
+                        <li>Local network operation only</li>
+                        <li>Input sanitization and validation</li>
+                        <li>Temporary operation (no persistence)</li>
+                    </ul>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Applications & Use Cases</h2>
+                    
+                    <h3>Security Testing</h3>
+                    <ul>
+                        <li>Penetration testing exercises</li>
+                        <li>Social engineering demonstrations</li>
+                        <li>Physical security assessments</li>
+                        <li>Red team operations</li>
+                    </ul>
+
+                    <h3>Automation & Productivity</h3>
+                    <ul>
+                        <li>Automated system configuration</li>
+                        <li>Batch script execution</li>
+                        <li>Repetitive task automation</li>
+                        <li>Demo and presentation scripting</li>
+                    </ul>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Project Information</h2>
+                    
+                    <h3>Bill of Materials</h3>
+                    <table class="component-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Quantity</th>
+                                <th>Cost (Approx.)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Raspberry Pi Pico H</td>
+                                <td>1</td>
+                                <td>$6</td>
+                            </tr>
+                            <tr>
+                                <td>ESP8266 NodeMCU</td>
+                                <td>1</td>
+                                <td>$4</td>
+                            </tr>
+                            <tr>
+                                <td>Jumper Wires</td>
+                                <td>4</td>
+                                <td>$1</td>
+                            </tr>
+                            <tr>
+                                <td>USB Cable</td>
+                                <td>1</td>
+                                <td>$2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Total</strong></td>
+                                <td></td>
+                                <td><strong>$13</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="project-meta" style="margin-top: 2rem;">
+                        <p><strong>Project Developed By:</strong> Pranav Hastak</p>
+                        <p><strong>Date:</strong> October 2024</p>
+                        <p><strong>Version:</strong> 1.0</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="https://github.com/powersource7/wifi-duck-pro" class="read-more-btn" target="_blank">View on GitHub</a>
+                </div>
+            </div>
         </div>
     </main>
 
