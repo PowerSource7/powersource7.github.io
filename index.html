@@ -1,46 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PowerSource</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>PowerSource</h1>
-    <p>Showcasing My Projects & Ideas</p>
-  </header>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <h2>My Portfolio</h2>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <div class="container">
-    
-    <!-- Project 1 -->
-    <div class="project">
-      <h2>RF Weather Transmitter</h2>
-      <p>This project sends real-time temperature and humidity wirelessly using an RF module and DHT11 sensor. It’s useful for monitoring weather conditions from a distance. The transmitter and receiver use Arduino Uno boards.</p>
-      <p><strong>Code & Repo:</strong> 
-        <a href="https://github.com/YourUsername/YourRFProject" target="_blank">View on GitHub</a>
-      </p>
-    </div>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hello, I'm a Developer</h1>
+                <p class="hero-subtitle">Welcome to my portfolio showcasing creative projects and solutions</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Project 2 Placeholder -->
-    <div class="project">
-      <h2>Coming Soon: AI-Based Object Detection Robot</h2>
-      <p>This section will showcase your YOLO object detection robot using Raspberry Pi, TensorFlow, and a camera system.</p>
-      <p><strong>Code & Repo:</strong> 
-        <a href="#">To be added...</a>
-      </p>
-    </div>
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project1.jpg" alt="Project 1" onerror="this.src='https://via.placeholder.com/400x250/4f46e5/ffffff?text=Project+1'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            A full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <a href="projects/project1.html" class="read-more-btn">Read More</a>
+                    </div>
+                </div>
 
-    <!-- About Me -->
-    <div class="project">
-      <h2>About Me</h2>
-      <p>Hello! I’m an electronics and computer enthusiast who enjoys building smart systems, automation projects, and AI applications. I created this site to document and share my technical journey.</p>
-      <!-- Uncomment and add when you're ready -->
-      <!-- <p>Resume: <a href="link-to-resume.pdf" target="_blank">Download PDF</a></p> -->
-      <!-- <p>Contact: email@example.com</p> -->
-    </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project2.jpg" alt="Project 2" onerror="this.src='https://via.placeholder.com/400x250/06b6d4/ffffff?text=Project+2'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">
+                            A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <a href="projects/project2.html" class="read-more-btn">Read More</a>
+                    </div>
+                </div>
 
-  </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project3.jpg" alt="Project 3" onerror="this.src='https://via.placeholder.com/400x250/10b981/ffffff?text=Project+3'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Weather Dashboard</h3>
+                        <p class="project-description">
+                            A responsive weather application that displays current conditions and forecasts using external APIs with beautiful data visualizations.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+                        <a href="projects/project3.html" class="read-more-btn">Read More</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/project4.jpg" alt="Project 4" onerror="this.src='https://via.placeholder.com/400x250/8b5cf6/ffffff?text=Project+4'">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Fitness Tracker</h3>
+                        <p class="project-description">
+                            Mobile-first fitness tracking application with workout plans, progress analytics, and social sharing capabilities.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">GraphQL</span>
+                        </div>
+                        <a href="projects/project4.html" class="read-more-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a passionate developer with experience in creating web applications and digital solutions. 
+                        I enjoy turning complex problems into simple, beautiful, and intuitive designs.
+                    </p>
+                    <p>
+                        When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, 
+                        or sharing knowledge with the developer community.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p>Interested in working together? Feel free to reach out!</p>
+                <div class="contact-links">
+                    <a href="mailto:your-email@example.com" class="contact-link">Email</a>
+                    <a href="https://github.com/yourusername" class="contact-link">GitHub</a>
+                    <a href="https://linkedin.com/in/yourprofile" class="contact-link">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
