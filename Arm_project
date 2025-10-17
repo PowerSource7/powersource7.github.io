@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision-Based Robotic Arm with YOLO - Project Details</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <style>
+        .certificate-banner {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+            border: 2px solid #047857;
+        }
+        
+        .team-section {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 5px solid #4f46e5;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .team-member {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hardware-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .hardware-table th {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .hardware-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .hardware-table tr:hover td {
+            background: #f8fafc;
+        }
+        
+        .code-section {
+            background: #1e293b;
+            border-radius: 12px;
+            margin: 2rem 0;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        .code-header {
+            background: #0f172a;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 4px solid #10b981;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .spec-card {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .workflow-step {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border-left: 4px solid #8b5cf6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .achievement-badge {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <h2>Pranav Hastak</h2>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="project-detail">
+        <div class="container">
+            <a href="../index.html" class="back-btn">← Back to Projects</a>
+            
+            <div class="project-detail-content">
+                <!-- Achievement Banner -->
+                <div class="certificate-banner">
+                    <h3>🎓 Academic Project | State Level Competition Participant</h3>
+                    <p>Diploma in Electronics & Instrumentation Engineering | Government Polytechnic Panaji</p>
+                    <span class="achievement-badge">State Level Project Competition 2025</span>
+                </div>
+
+                <div class="project-detail-image">
+                    <img src="../images/yolo-robotic-arm.jpg" alt="YOLO Robotic Arm" onerror="this.src='https://via.placeholder.com/800x400/10b981/ffffff?text=YOLO+Robotic+Arm+System'">
+                </div>
+                
+                <h1>Intelligent Robotic Arm Using YOLO and Raspberry Pi 5</h1>
+                
+                <div class="project-meta">
+                    <span class="tech-tag">Raspberry Pi 5</span>
+                    <span class="tech-tag">YOLO v8</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">Computer Vision</span>
+                    <span class="tech-tag">Servo Motors</span>
+                    <span class="tech-tag">AI Robotics</span>
+                </div>
+
+                <!-- Team Section -->
+                <div class="team-section">
+                    <h3>👥 Project Team</h3>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <strong>Pranav Hastak</strong>
+                            <div style="font-size: 0.9rem; color: #64748b;">Team Lead & Developer</div>
+                        </div>
+                        <div class="team-member">
+                            <strong>Atul Naik</strong>
+                            <div style="font-size: 0.9rem; color: #64748b;">Team Member</div>
+                        </div>
+                        <div class="team-member">
+                            <strong>Bhavesh Kandolkar</strong>
+                            <div style="font-size: 0.9rem; color: #64748b;">Team Member</div>
+                        </div>
+                        <div class="team-member">
+                            <strong>Harshad Gawade</strong>
+                            <div style="font-size: 0.9rem; color: #64748b;">Team Member</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; text-align: center; color: #64748b;">
+                        <strong>Project Guide:</strong> Prof. Brian Soares | <strong>HOD:</strong> Mrs. Sheetal Pednekar
+                    </p>
+                </div>
+
+                <div class="project-detail-description">
+                    <h2>Project Overview</h2>
+                    <p>An intelligent 6-DOF robotic arm system that uses YOLO (You Only Look Once) real-time object detection to identify, pick, and place objects autonomously. The system combines computer vision with precise servo motor control for industrial automation applications.</p>
+                    
+                    <p>This project represents the convergence of artificial intelligence, computer vision, and robotics, creating an adaptive system that can handle dynamic environments without predefined programming.</p>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Key Features & Innovations</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4>🤖 Real-time Object Detection</h4>
+                            <p>YOLO v8 algorithm processes camera feed at 30-60 FPS to detect objects with high accuracy and minimal latency.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>🎯 Selective Object Handling</h4>
+                            <p>Identifies specific objects (bottles, phones, watches) while ignoring unrecognized items using class-based filtering.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>📡 Multi-Sensor Integration</h4>
+                            <p>Combines camera vision with IR proximity sensors for enhanced object localization and detection reliability.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>⚡ Adaptive Power Management</h4>
+                            <p>Boost converter ensures stable power distribution for Raspberry Pi and high-torque servo motors.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>🔧 Precise Servo Control</h4>
+                            <p>16-channel PCA9685 servo driver with smooth PWM control for accurate 180-degree movement range.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>🔄 Search & Locate Algorithm</h4>
+                            <p>Intelligent scanning mechanism using IR sensor to locate objects when not in direct camera view.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>System Architecture</h2>
+                    
+                    <h3>Hardware Components</h3>
+                    <table class="hardware-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Specifications</th>
+                                <th>Role in System</th>
+                                <th>Cost (₹)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Raspberry Pi 5</strong></td>
+                                <td>Quad-core ARM Cortex-A76, 2.4GHz, 4GB RAM</td>
+                                <td>Central processing unit for YOLO and motor control</td>
+                                <td>6,750</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Camera Module</strong></td>
+                                <td>8MP, 62° FOV, CSI-2 interface</td>
+                                <td>Real-time image capture for object detection</td>
+                                <td>1,700</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Servo Driver (PCA9685)</strong></td>
+                                <td>16-channel, I2C, 5-6V operation</td>
+                                <td>PWM control for multiple servo motors</td>
+                                <td>588</td>
+                            </tr>
+                            <tr>
+                                <td><strong>MG996R Servo (x3)</strong></td>
+                                <td>10-13 kg.cm torque, 180° rotation</td>
+                                <td>Main arm movements and lifting</td>
+                                <td>972</td>
+                            </tr>
+                            <tr>
+                                <td><strong>MG90S Servo (x3)</strong></td>
+                                <td>1.8 kg.cm torque, 180° rotation</td>
+                                <td>Fine adjustments and gripping</td>
+                                <td>657</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IR Sensor</strong></td>
+                                <td>20cm range, digital output</td>
+                                <td>Object proximity detection</td>
+                                <td>300</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Arm Structure</strong></td>
+                                <td>Custom mechanical design</td>
+                                <td>6-DOF robotic arm framework</td>
+                                <td>1,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Power Supply</strong></td>
+                                <td>Boost converter, 5V/2A</td>
+                                <td>Stable power management</td>
+                                <td>500</td>
+                            </tr>
+                            <tr style="background: #f1f5f9;">
+                                <td><strong>Total</strong></td>
+                                <td colspan="2"><strong>Complete System</strong></td>
+                                <td><strong>12,467</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Software Stack</h3>
+                    <div class="specs-grid">
+                        <div class="spec-card">
+                            <h4>YOLO v8</h4>
+                            <p>Real-time object detection at 30-60 FPS with 95%+ accuracy for trained objects</p>
+                        </div>
+                        <div class="spec-card">
+                            <h4>Python 3</h4>
+                            <p>Primary programming language with threading for parallel execution</p>
+                        </div>
+                        <div class="spec-card">
+                            <h4>OpenCV</h4>
+                            <p>Image processing, filtering, and real-time video stream handling</p>
+                        </div>
+                        <div class="spec-card">
+                            <h4>Raspberry Pi OS</h4>
+                            <p>Optimized Linux distribution with hardware-accelerated AI support</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Working Principle & Algorithm</h2>
+                    
+                    <div class="workflow-step">
+                        <h4>1. System Initialization</h4>
+                        <p>All hardware components are initialized - servos set to home position, camera starts streaming, YOLO model loads into memory.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <h4>2. Object Detection Loop</h4>
+                        <p>Camera captures frames → YOLO processes images → Identifies objects from target classes (bottle:39, phone:67, watch:73).</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <h4>3. Search & Localization</h4>
+                        <p>If object not in direct view, IR sensor scans environment by rotating base servo until object proximity detected.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <h4>4. Precision Movement</h4>
+                        <p>Servo motors execute smooth trajectory to object location using predefined position profiles for different object types.</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <h4>5. Pick & Place Sequence</h4>
+                        <p>Gripper closes → Object lifted → Arm moves to drop position → Gripper opens → Return to home position.</p>
+                    </div>
+
+                    <h3>Core Python Implementation</h3>
+                    <div class="code-section">
+                        <div class="code-header">
+                            <h4>Main Control Logic</h4>
+                            <span class="code-filename">object_detection.py</span>
+                        </div>
+                        <pre><code class="language-python">import cv2
+import time
+import threading
+import gpiod
+from picamera2 import Picamera2
+from ultralytics import YOLO
+from adafruit_servokit import ServoKit
+
+# Hardware initialization
+kit = ServoKit(channels=16, frequency=60)
+picam2 = Picamera2()
+model = YOLO("yolov8n_ncnn_model")
+
+# Target object classes (YOLO class IDs)
+TARGET_CLASSES = [39, 67, 73]  # bottle, phone, watch
+BOWL_CLASS = 60  # Placement reference
+
+# Servo position profiles
+INITIAL_POSITION = {1: 20, 2: 90, 3: 160, 4: 165, 5: 0}
+BOTTLE_PICKUP_POSITION = {1: 140, 2: 90, 3: 140, 4: 50, 5: 0}
+DROP_POSITION = {1: 140, 2: 90, 3: 140, 4: 50, 5: 90}
+
+def move_to_position(position_dict, delay=1):
+    """Move all servos to specified angles smoothly"""
+    for channel, angle in position_dict.items():
+        kit.servo[channel].angle = angle
+        time.sleep(0.5)
+    time.sleep(delay)
+
+def yolo_detection():
+    """Real-time object detection using YOLO"""
+    global current_object, latest_frame
+    while running:
+        if latest_frame is not None:
+            with frame_lock:
+                rotated_frame = cv2.rotate(latest_frame, cv2.ROTATE_90_CLOCKWISE)
+                results = model(rotated_frame, classes=TARGET_CLASSES, conf=0.5)
+                detected_classes = results[0].boxes.cls.tolist()
+                current_object = next((cls for cls in detected_classes if cls in TARGET_CLASSES), None)
+
+def main():
+    """Main control loop"""
+    global running
+    move_to_position(INITIAL_POSITION, delay=2)
+    
+    # Start detection and camera threads
+    detection_thread = threading.Thread(target=yolo_detection, daemon=True)
+    detection_thread.start()
+    
+    try:
+        while running:
+            if current_object is not None:
+                object_name = model.names[int(current_object)]
+                print(f"Detected: {object_name}")
+                
+                # Execute pick and place sequence
+                move_to_position(BOTTLE_PICKUP_POSITION, delay=2)
+                close_gripper()
+                move_to_position(LIFT_POSITION, delay=2)
+                move_to_position(DROP_POSITION, delay=2)
+                open_gripper()
+                
+    finally:
+        running = False
+        move_to_position(INITIAL_POSITION)
+
+if __name__ == "__main__":
+    main()</code></pre>
+                    </div>
+                </div>
+
+                <hr class="section-divider">
+
+                <div class="project-features">
+                    <h2>Technical Specifications</h2>
+                    
+                    <h3>Performance Metrics</h3>
+                    <div class="specs-grid">
+                        <div class="spec-card">
+                            <h4>Detection Accuracy</h4>
+                            <p>>95% for trained objects with confidence threshold of 0.5</p>
+                        </div>
+                        <div class="spec-card">
+                            <h4>Response Time</h4>
+                            <p><2 seconds from detection to pickup initiation</p>
+                 
